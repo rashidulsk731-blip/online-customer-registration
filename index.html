@@ -1,630 +1,977 @@
 <!DOCTYPE html>
-<html lang="as">
+<html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Premium Customer Registration</title>
+  <title>Premium Customer Registration</title>
 
-<style>
-*{box-sizing:border-box;margin:0;padding:0}
+  <style>
 
-body{
-font-family:Arial,sans-serif;
-background:#f4f5f8;
-color:#172033;
-}
+    *{
+      box-sizing:border-box;
+      margin:0;
+      padding:0;
+    }
 
-header{
-background:linear-gradient(135deg,#0b1228,#25163c);
-color:white;
-padding:42px 18px 85px;
-text-align:center;
-}
+    body{
+      font-family:Arial,Helvetica,sans-serif;
+      background:#f4f6fb;
+      color:#172033;
+      line-height:1.5;
+    }
 
-.badge{
-display:inline-block;
-padding:8px 16px;
-border:1px solid #d9bb69;
-border-radius:50px;
-color:#e7cb7d;
-font-size:11px;
-letter-spacing:1px;
-}
+    /* HEADER */
 
-header h1{
-margin-top:16px;
-font-size:30px;
-}
+    header{
+      background:linear-gradient(135deg,#081126,#24153c);
+      color:white;
+      padding:45px 18px 85px;
+      text-align:center;
+    }
 
-header p{
-margin-top:8px;
-color:#bac2d3;
-}
+    .badge{
+      display:inline-block;
+      padding:8px 16px;
+      border:1px solid #d9bb69;
+      border-radius:50px;
+      color:#e8cd83;
+      font-size:11px;
+      letter-spacing:1px;
+    }
 
-.container{
-max-width:850px;
-margin:-48px auto 40px;
-padding:0 15px;
-}
+    header h1{
+      margin-top:18px;
+      font-size:31px;
+    }
 
-.card{
-background:#fff;
-border-radius:25px;
-padding:25px;
-box-shadow:0 18px 50px #111a3218;
-border:1px solid #e5e8ef;
-}
+    header p{
+      margin-top:8px;
+      color:#b9c2d5;
+      font-size:14px;
+    }
 
-.fee{
-background:linear-gradient(135deg,#111936,#29173d);
-color:white;
-padding:22px;
-border-radius:20px;
-text-align:center;
-margin-bottom:25px;
-}
+    /* MAIN */
 
-.fee h2{
-font-size:38px;
-color:#e8ca76;
-margin:6px;
-}
+    .container{
+      max-width:850px;
+      margin:-48px auto 40px;
+      padding:0 15px;
+    }
 
-.upi{
-font-size:13px;
-color:#d3d9e6;
-}
+    .card{
+      background:#ffffff;
+      border-radius:25px;
+      padding:25px;
+      border:1px solid #e2e6ef;
+      box-shadow:0 18px 50px rgba(16,27,52,.12);
+    }
 
-.qrbox{
-margin:20px auto;
-padding:15px;
-background:white;
-border-radius:18px;
-width:230px;
-box-shadow:0 8px 25px #0002;
-}
+    /* PAYMENT BOX */
 
-.qrbox img{
-width:100%;
-display:block;
-border-radius:10px;
-}
+    .payment-box{
+      background:linear-gradient(135deg,#101a38,#28163d);
+      color:white;
+      border-radius:21px;
+      padding:22px;
+      text-align:center;
+      margin-bottom:25px;
+    }
 
-.qrtitle{
-font-weight:bold;
-margin-bottom:10px;
-color:#172033;
-}
+    .payment-title{
+      font-size:14px;
+      color:#d9deea;
+    }
 
-.grid{
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:14px;
-}
+    .amount{
+      font-size:42px;
+      font-weight:bold;
+      color:#e8ca76;
+      margin:5px 0;
+    }
 
-.field{
-margin-top:12px;
-}
+    .upi{
+      font-size:13px;
+      color:#d5dbe7;
+    }
 
-.full{
-grid-column:1/-1;
-}
+    /* QR */
 
-label{
-display:block;
-font-size:13px;
-font-weight:bold;
-color:#667086;
-margin-bottom:7px;
-}
+    .qr-area{
+      background:#ffffff;
+      color:#172033;
+      width:260px;
+      max-width:100%;
+      margin:20px auto;
+      padding:15px;
+      border-radius:18px;
+      box-shadow:0 8px 30px rgba(0,0,0,.18);
+    }
 
-input,select,textarea{
-width:100%;
-padding:14px;
-border:1px solid #d9deea;
-border-radius:12px;
-font-size:14px;
-outline:none;
-background:#fff;
-}
+    .qr-area h3{
+      font-size:15px;
+      margin-bottom:12px;
+    }
 
-textarea{
-min-height:90px;
-resize:vertical;
-}
+    .qr-area img{
+      width:100%;
+      display:block;
+      border-radius:8px;
+    }
 
-input:focus,
-select:focus,
-textarea:focus{
-border-color:#c6a64f;
-}
+    .qr-note{
+      margin-top:10px;
+      font-size:12px;
+      color:#697286;
+    }
 
-.pay{
-width:100%;
-margin-top:15px;
-padding:15px;
-border:0;
-border-radius:12px;
-background:#d8b765;
-font-weight:bold;
-font-size:15px;
-cursor:pointer;
-}
+    /* BUTTON */
 
-.upload{
-margin-top:22px;
-padding:18px;
-border:2px dashed #d7dce7;
-border-radius:16px;
-background:#fafbfc;
-}
+    .pay-button{
+      width:100%;
+      border:0;
+      padding:15px;
+      border-radius:12px;
+      background:#d8b765;
+      color:#171717;
+      font-size:15px;
+      font-weight:bold;
+      cursor:pointer;
+    }
 
-.preview{
-display:none;
-margin-top:15px;
-text-align:center;
-}
+    .pay-button:hover{
+      opacity:.9;
+    }
 
-.preview img{
-max-width:100%;
-max-height:280px;
-border-radius:12px;
-}
+    /* FORM */
 
-.check{
-margin-top:12px;
-padding:12px;
-border-radius:10px;
-background:#fff8df;
-font-size:13px;
-color:#6d5a1c;
-}
+    .section-title{
+      margin-bottom:12px;
+      font-size:20px;
+    }
 
-.submit{
-margin-top:22px;
-width:100%;
-padding:16px;
-border:0;
-border-radius:13px;
-background:#17213f;
-color:white;
-font-size:15px;
-font-weight:bold;
-cursor:pointer;
-}
+    .grid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:14px;
+    }
 
-.reset{
-margin-top:10px;
-width:100%;
-padding:13px;
-border:0;
-border-radius:12px;
-background:#edf0f5;
-cursor:pointer;
-}
+    .field{
+      margin-top:12px;
+    }
 
-.notice{
-margin-top:20px;
-padding:14px;
-border-radius:12px;
-background:#f1f4f9;
-color:#667086;
-font-size:12px;
-line-height:1.6;
-}
+    .full{
+      grid-column:1/-1;
+    }
 
-footer{
-text-align:center;
-padding:20px;
-color:#7a8395;
-font-size:12px;
-}
+    label{
+      display:block;
+      margin-bottom:7px;
+      color:#657086;
+      font-size:13px;
+      font-weight:bold;
+    }
 
-@media(max-width:650px){
-.grid{
-grid-template-columns:1fr;
-}
-.full{
-grid-column:auto;
-}
-header h1{
-font-size:25px;
-}
-.card{
-padding:18px;
-}
-}
-</style>
+    input,
+    select,
+    textarea{
+      width:100%;
+      padding:14px;
+      border:1px solid #d8deea;
+      border-radius:12px;
+      outline:none;
+      background:#fff;
+      color:#172033;
+      font-size:14px;
+    }
+
+    input:focus,
+    select:focus,
+    textarea:focus{
+      border-color:#c6a54d;
+    }
+
+    textarea{
+      min-height:95px;
+      resize:vertical;
+    }
+
+    /* SCREENSHOT */
+
+    .screenshot-box{
+      margin-top:23px;
+      padding:18px;
+      border:2px dashed #d5dbe6;
+      border-radius:17px;
+      background:#fafbfc;
+    }
+
+    .screenshot-box input{
+      margin-top:8px;
+    }
+
+    .preview{
+      display:none;
+      text-align:center;
+      margin-top:15px;
+    }
+
+    .preview img{
+      max-width:100%;
+      max-height:300px;
+      border-radius:12px;
+      border:1px solid #ddd;
+    }
+
+    .security-note{
+      margin-top:12px;
+      padding:12px;
+      border-radius:10px;
+      background:#fff8df;
+      color:#6d5a1c;
+      font-size:12px;
+    }
+
+    /* SUBMIT */
+
+    .submit-button{
+      width:100%;
+      margin-top:20px;
+      padding:16px;
+      border:0;
+      border-radius:13px;
+      background:#17213f;
+      color:white;
+      font-size:15px;
+      font-weight:bold;
+      cursor:pointer;
+    }
+
+    .reset-button{
+      width:100%;
+      margin-top:10px;
+      padding:13px;
+      border:0;
+      border-radius:12px;
+      background:#edf0f5;
+      color:#30384b;
+      cursor:pointer;
+    }
+
+    /* NOTICE */
+
+    .notice{
+      margin-top:20px;
+      padding:15px;
+      background:#f1f4fa;
+      border-radius:12px;
+      color:#657086;
+      font-size:12px;
+    }
+
+    /* FOOTER */
+
+    footer{
+      text-align:center;
+      padding:20px;
+      color:#7b8496;
+      font-size:12px;
+    }
+
+    /* MOBILE */
+
+    @media(max-width:650px){
+
+      .grid{
+        grid-template-columns:1fr;
+      }
+
+      .full{
+        grid-column:auto;
+      }
+
+      header h1{
+        font-size:25px;
+      }
+
+      .card{
+        padding:18px;
+      }
+
+    }
+
+  </style>
 </head>
+
 
 <body>
 
+
+<!-- HEADER -->
+
 <header>
 
-<div class="badge">
-PREMIUM CUSTOMER PORTAL
-</div>
+  <div class="badge">
+    PREMIUM CUSTOMER PORTAL
+  </div>
 
-<h1>
-Customer Registration
-</h1>
+  <h1>
+    Customer Registration
+  </h1>
 
-<p>
-Secure Registration • ₹50 Fee • WhatsApp Confirmation
-</p>
+  <p>
+    Register Online • Pay ₹50 • Submit Details
+  </p>
 
 </header>
 
 
+
+<!-- MAIN -->
+
 <div class="container">
 
-<div class="card">
+  <div class="card">
 
 
-<!-- PAYMENT -->
+    <!-- PAYMENT SECTION -->
 
-<div class="fee">
+    <div class="payment-box">
 
-<div>
-REGISTRATION FEE
+      <div class="payment-title">
+        CUSTOMER REGISTRATION FEE
+      </div>
+
+      <div class="amount">
+        ₹50
+      </div>
+
+      <div class="upi">
+        Fampay UPI:
+        <b>9387628351@fam</b>
+      </div>
+
+
+      <!-- QR -->
+
+      <div class="qr-area">
+
+        <h3>
+          📲 Scan QR & Pay ₹50
+        </h3>
+
+        <img
+          src="fampay-qr.jpg"
+          alt="Fampay Payment QR"
+          onerror="showQRError()"
+        >
+
+        <div
+          id="qrError"
+          style="
+          display:none;
+          color:#b3261e;
+          font-size:12px;
+          padding:12px;
+          "
+        >
+          QR image পোৱা নগ'ল।<br>
+          <b>fampay-qr.jpg</b>
+          file-টো index.html-ৰ লগত upload কৰক।
+        </div>
+
+        <div class="qr-note">
+          QR scan কৰি ₹50 payment কৰক।
+        </div>
+
+      </div>
+
+
+      <!-- UPI PAYMENT BUTTON -->
+
+      <button
+        type="button"
+        class="pay-button"
+        onclick="payNow()"
+      >
+        💳 Pay ₹50 Now
+      </button>
+
+    </div>
+
+
+
+    <!-- CUSTOMER FORM -->
+
+    <h2 class="section-title">
+      👤 Customer Details
+    </h2>
+
+
+    <form id="registrationForm">
+
+
+      <div class="grid">
+
+
+        <!-- NAME -->
+
+        <div class="field">
+
+          <label>
+            Customer Name *
+          </label>
+
+          <input
+            type="text"
+            id="customerName"
+            placeholder="Enter full name"
+            required
+          >
+
+        </div>
+
+
+        <!-- MOBILE -->
+
+        <div class="field">
+
+          <label>
+            Mobile Number *
+          </label>
+
+          <input
+            type="tel"
+            id="mobile"
+            maxlength="10"
+            inputmode="numeric"
+            placeholder="10 digit mobile number"
+            required
+          >
+
+        </div>
+
+
+        <!-- ADDRESS -->
+
+        <div class="field full">
+
+          <label>
+            Full Address *
+          </label>
+
+          <textarea
+            id="address"
+            placeholder="Enter full address"
+            required
+          ></textarea>
+
+        </div>
+
+
+        <!-- SERVICE -->
+
+        <div class="field">
+
+          <label>
+            Service *
+          </label>
+
+          <select
+            id="service"
+            required
+          >
+
+            <option value="">
+              Select Service
+            </option>
+
+            <option>
+              Customer Registration
+            </option>
+
+            <option>
+              Logo Design
+            </option>
+
+            <option>
+              Online Form Service
+            </option>
+
+            <option>
+              Design Service
+            </option>
+
+            <option>
+              Other Service
+            </option>
+
+          </select>
+
+        </div>
+
+
+        <!-- DATE -->
+
+        <div class="field">
+
+          <label>
+            Registration Date *
+          </label>
+
+          <input
+            type="date"
+            id="registrationDate"
+            required
+          >
+
+        </div>
+
+
+        <!-- DETAILS -->
+
+        <div class="field full">
+
+          <label>
+            Additional Details
+          </label>
+
+          <textarea
+            id="details"
+            placeholder="Write additional information..."
+          ></textarea>
+
+        </div>
+
+
+      </div>
+
+
+
+      <!-- PAYMENT SCREENSHOT -->
+
+      <div class="screenshot-box">
+
+        <label>
+          📸 Payment Screenshot *
+        </label>
+
+        <input
+          type="file"
+          id="paymentScreenshot"
+          accept="image/png,image/jpeg,image/webp"
+          required
+        >
+
+
+        <div
+          id="preview"
+          class="preview"
+        >
+
+          <p style="font-size:12px;margin-bottom:8px;">
+            Screenshot Preview
+          </p>
+
+          <img
+            id="previewImage"
+            alt="Payment Screenshot"
+          >
+
+        </div>
+
+
+        <div class="security-note">
+
+          ⚠️ Screenshot upload কৰিলেই payment verified
+          বুলি ধৰা নহ'ব। ₹50 payment তোমাৰ Fampay/UPI
+          account-ত receive হৈছে নে নাই নিজে verify কৰিবা।
+
+        </div>
+
+      </div>
+
+
+
+      <!-- SUBMIT -->
+
+      <button
+        type="submit"
+        class="submit-button"
+      >
+        📱 Submit Registration to WhatsApp
+      </button>
+
+
+      <!-- RESET -->
+
+      <button
+        type="reset"
+        class="reset-button"
+        onclick="resetPreview()"
+      >
+        Reset Form
+      </button>
+
+
+    </form>
+
+
+
+    <!-- INFORMATION -->
+
+    <div class="notice">
+
+      <b>Payment Steps:</b>
+
+      <br><br>
+
+      1. QR code scan কৰক।<br>
+
+      2. ₹50 payment কৰক।<br>
+
+      3. Successful payment screenshot লওক।<br>
+
+      4. Screenshot upload কৰক।<br>
+
+      5. Registration form পূৰণ কৰক।<br>
+
+      6. Submit button click কৰক।<br>
+
+      7. WhatsApp-ত details পঠাওক।<br>
+
+      <br>
+
+      <b>WhatsApp:</b>
+      9387628351
+
+    </div>
+
+
+  </div>
+
 </div>
 
-<h2>₹50</h2>
 
-<div class="upi">
-Fampay UPI: <b>9387628351@fam</b>
-</div>
 
-
-<div class="qrbox">
-
-<div class="qrtitle">
-Scan QR & Pay ₹50
-</div>
-
-<img
-src="fampay-qr.jpg"
-alt="Fampay QR Code"
-onerror="this.style.display='none';document.getElementById('qrError').style.display='block';"
->
-
-<div
-id="qrError"
-style="display:none;color:#b3261e;font-size:12px;padding:10px"
->
-QR image not found.<br>
-Upload <b>fampay-qr.jpg</b> beside index.html.
-</div>
-
-</div>
-
-
-<button
-type="button"
-class="pay"
-onclick="payNow()"
->
-💳 Pay ₹50 with UPI
-</button>
-
-</div>
-
-
-<form id="form">
-
-
-<h2>
-👤 Customer Details
-</h2>
-
-
-<div class="grid">
-
-
-<div class="field">
-
-<label>Customer Name *</label>
-
-<input
-id="name"
-required
-placeholder="Enter full name"
->
-
-</div>
-
-
-<div class="field">
-
-<label>Mobile Number *</label>
-
-<input
-id="mobile"
-type="tel"
-inputmode="numeric"
-maxlength="10"
-required
-placeholder="10 digit mobile"
->
-
-</div>
-
-
-<div class="field full">
-
-<label>Full Address *</label>
-
-<textarea
-id="address"
-required
-placeholder="Enter full address"
-></textarea>
-
-</div>
-
-
-<div class="field">
-
-<label>Service *</label>
-
-<select id="service" required>
-
-<option value="">
-Select Service
-</option>
-
-<option>Customer Registration</option>
-<option>Logo Design</option>
-<option>Online Form Service</option>
-<option>Design Service</option>
-<option>Other Service</option>
-
-</select>
-
-</div>
-
-
-<div class="field">
-
-<label>Registration Date *</label>
-
-<input
-id="date"
-type="date"
-required
->
-
-</div>
-
-
-<div class="field full">
-
-<label>Additional Details</label>
-
-<textarea
-id="details"
-placeholder="Additional information..."
-></textarea>
-
-</div>
-
-</div>
-
-
-<!-- SCREENSHOT -->
-
-<div class="upload">
-
-<label>
-📸 Upload Payment Screenshot *
-</label>
-
-<input
-id="screenshot"
-type="file"
-accept="image/png,image/jpeg,image/webp"
-required
->
-
-<div
-id="preview"
-class="preview"
->
-
-<img
-id="previewImg"
-alt="Payment Screenshot"
->
-
-</div>
-
-<div class="check">
-
-⚠️ Screenshot upload কৰিলেই payment verified বুলি ধৰা নহ'ব।
-₹50 payment account-ত receive হৈছে নে নাই owner-এ নিজে check কৰিব লাগিব।
-
-</div>
-
-</div>
-
-
-<button
-type="submit"
-class="submit"
->
-📱 Submit Registration to WhatsApp
-</button>
-
-
-<button
-type="reset"
-class="reset"
-onclick="resetPreview()"
->
-Reset Form
-</button>
-
-
-</form>
-
-
-<div class="notice">
-
-<b>Payment Instructions</b><br><br>
-
-1. ওপৰৰ QR scan কৰক অথবা Pay ₹50 button click কৰক।<br>
-2. ₹50 payment সম্পূৰ্ণ কৰক।<br>
-3. Payment successful screenshot লওক।<br>
-4. Screenshot upload কৰক।<br>
-5. Submit button click কৰক।<br>
-6. WhatsApp-ত registration details পঠিয়াওক।<br><br>
-
-<b>WhatsApp:</b> 9387628351
-
-</div>
-
-</div>
-
-</div>
-
+<!-- FOOTER -->
 
 <footer>
-Premium Customer Registration Portal
+
+  Premium Customer Registration Portal
+
+  <br><br>
+
+  Registration Fee: ₹50
+
 </footer>
+
 
 
 <script>
 
-const UPI_ID="9387628351@fam";
 
-const WHATSAPP="919387628351";
+/* SETTINGS */
 
-const AMOUNT="50";
+const UPI_ID =
+"9387628351@fam";
+
+const WHATSAPP_NUMBER =
+"919387628351";
+
+const PAYMENT_AMOUNT =
+"50";
 
 
-// TODAY DATE
 
-document.getElementById("date").value=
-new Date().toISOString().slice(0,10);
+/* TODAY DATE */
+
+document.getElementById(
+  "registrationDate"
+).value =
+new Date()
+.toISOString()
+.slice(0,10);
 
 
-// UPI PAYMENT
+
+/* QR ERROR */
+
+function showQRError(){
+
+  const error =
+  document.getElementById(
+    "qrError"
+  );
+
+  if(error){
+    error.style.display =
+    "block";
+  }
+
+}
+
+
+
+/* PAY ₹50 */
 
 function payNow(){
 
-const name=
-document.getElementById("name").value.trim();
+  const customerName =
+  document.getElementById(
+    "customerName"
+  ).value.trim();
 
-const transactionNote=
-name ?
-"Customer Registration - "+name :
-"Customer Registration";
 
-const upi=
-"upi://pay"+
-"?pa="+encodeURIComponent(UPI_ID)+
-"&pn="+encodeURIComponent("Customer Registration")+
-"&am="+AMOUNT+
-"&cu=INR"+
-"&tn="+encodeURIComponent(transactionNote);
+  let note =
+  "Customer Registration Fee";
 
-window.location.href=upi;
+
+  if(customerName){
+    note =
+    "Registration - " +
+    customerName;
+  }
+
+
+  const upiURL =
+    "upi://pay" +
+    "?pa=" +
+    encodeURIComponent(
+      UPI_ID
+    ) +
+    "&pn=" +
+    encodeURIComponent(
+      "Customer Registration"
+    ) +
+    "&am=" +
+    PAYMENT_AMOUNT +
+    "&cu=INR" +
+    "&tn=" +
+    encodeURIComponent(
+      note
+    );
+
+
+  window.location.href =
+  upiURL;
 
 }
 
 
-// SCREENSHOT PREVIEW
 
-document.getElementById("screenshot")
-.addEventListener("change",function(){
+/* SCREENSHOT PREVIEW */
 
-const file=this.files[0];
+document
+.getElementById(
+  "paymentScreenshot"
+)
+.addEventListener(
+  "change",
+  function(){
 
-if(!file)return;
-
-if(!file.type.startsWith("image/")){
-
-alert("Only image screenshot upload কৰক.");
-
-this.value="";
-
-return;
-}
-
-if(file.size>5*1024*1024){
-
-alert("Screenshot 5MB-তকৈ সৰু হ'ব লাগিব.");
-
-this.value="";
-
-return;
-}
-
-const reader=new FileReader();
-
-reader.onload=function(e){
-
-document.getElementById("previewImg").src=
-e.target.result;
-
-document.getElementById("preview").style.display=
-"block";
-
-};
-
-reader.readAsDataURL(file);
-
-});
+    const file =
+    this.files[0];
 
 
-// SUBMIT
-
-document.getElementById("form")
-.addEventListener("submit",function(e){
-
-e.preventDefault();
-
-const name=
-document.getElementById("name").value.trim();
-
-const mobile=
-document.getElementById("mobile").value.trim();
-
-const address=
-document.getElementById("address").value.trim();
-
-const service=
-document.getElementById("service").value;
-
-const date=
-document.getElementById("date").value;
-
-const details=
-document.getElementById("details").value.trim() || "N/A";
-
-const screenshot=
-document.getElementById("screenshot").files[0];
+    if(!file){
+      return;
+    }
 
 
-if(!/^[0-9]{10}$/.test(mobile)){
+    /* ONLY IMAGE */
 
-alert("Valid 10 digit mobile number দিয়ক.");
+    if(
+      !file.type.startsWith(
+        "image/"
+      )
+    ){
 
-return;
-}
+      alert(
+        "Please payment screenshot image upload কৰক।"
+      );
 
-if(!screenshot){
+      this.value = "";
 
-alert("Payment screenshot upload কৰক.");
+      return;
 
-return;
-}
+    }
 
 
-// WhatsApp message
+    /* MAX 5MB */
 
-const message=
+    if(
+      file.size >
+      5 * 1024 * 1024
+    ){
+
+      alert(
+        "Screenshot 5MB-তকৈ সৰু হ'ব লাগিব।"
+      );
+
+      this.value = "";
+
+      return;
+
+    }
+
+
+    const reader =
+    new FileReader();
+
+
+    reader.onload =
+    function(event){
+
+      document
+      .getElementById(
+        "previewImage"
+      )
+      .src =
+      event.target.result;
+
+
+      document
+      .getElementById(
+        "preview"
+      )
+      .style.display =
+      "block";
+
+    };
+
+
+    reader.readAsDataURL(
+      file
+    );
+
+  }
+);
+
+
+
+/* FORM SUBMIT */
+
+document
+.getElementById(
+  "registrationForm"
+)
+.addEventListener(
+  "submit",
+  function(event){
+
+    event.preventDefault();
+
+
+    const name =
+    document
+    .getElementById(
+      "customerName"
+    )
+    .value.trim();
+
+
+    const mobile =
+    document
+    .getElementById(
+      "mobile"
+    )
+    .value.trim();
+
+
+    const address =
+    document
+    .getElementById(
+      "address"
+    )
+    .value.trim();
+
+
+    const service =
+    document
+    .getElementById(
+      "service"
+    )
+    .value;
+
+
+    const date =
+    document
+    .getElementById(
+      "registrationDate"
+    )
+    .value;
+
+
+    const details =
+    document
+    .getElementById(
+      "details"
+    )
+    .value.trim() ||
+    "N/A";
+
+
+    const screenshot =
+    document
+    .getElementById(
+      "paymentScreenshot"
+    )
+    .files[0];
+
+
+    /* VALIDATION */
+
+    if(
+      !name ||
+      !mobile ||
+      !address ||
+      !service ||
+      !date ||
+      !screenshot
+    ){
+
+      alert(
+        "সকলো required field পূৰণ কৰক।"
+      );
+
+      return;
+
+    }
+
+
+    /* MOBILE VALIDATION */
+
+    if(
+      !/^[0-9]{10}$/.test(
+        mobile
+      )
+    ){
+
+      alert(
+        "Valid 10 digit mobile number দিয়ক।"
+      );
+
+      return;
+
+    }
+
+
+    /*
+      WHATSAPP MESSAGE
+
+      NOTE:
+      Browser-ৰ পৰা uploaded image
+      automatic WhatsApp attachment
+      হিচাপে পঠাব নোৱাৰি।
+
+      সেয়ে message-ত screenshot
+      uploaded বুলি উল্লেখ কৰা হৈছে।
+    */
+
+
+    const message =
+
 `*NEW CUSTOMER REGISTRATION*
 
 ━━━━━━━━━━━━━━━━━━
@@ -641,7 +988,7 @@ const message=
 
 *Registration Fee:* ₹50
 
-*UPI ID:* ${UPI_ID}
+*Payment UPI:* ${UPI_ID}
 
 *Payment Screenshot:* Uploaded
 
@@ -649,42 +996,76 @@ const message=
 
 ━━━━━━━━━━━━━━━━━━
 
-⚠️ Please verify ₹50 payment manually.
+⚠️ PAYMENT VERIFICATION REQUIRED
+
+Please verify ₹50 payment in the
+Fampay/UPI account before approving
+the registration.
 
 Premium Customer Registration Portal`;
 
 
-const url=
-"https://wa.me/"+
-WHATSAPP+
-"?text="+
-encodeURIComponent(message);
+    const whatsappURL =
+
+    "https://wa.me/" +
+    WHATSAPP_NUMBER +
+    "?text=" +
+    encodeURIComponent(
+      message
+    );
 
 
-window.open(url,"_blank");
+    window.open(
+      whatsappURL,
+      "_blank"
+    );
 
 
-// Helpful instruction
+    /*
+      USER INSTRUCTION
+    */
 
-setTimeout(function(){
+    setTimeout(
+      function(){
 
-alert(
-"WhatsApp খুলিব। Customer-এ message পঠোৱাৰ লগতে Payment Screenshot-টো WhatsApp chat-ত manually attach কৰি Send কৰিব লাগিব."
+        alert(
+          "WhatsApp খুলিব। Screenshot-টো WhatsApp chat-ত manually attach কৰি Send কৰিব লাগিব।"
+        );
+
+      },
+      700
+    );
+
+  }
 );
 
-},500);
-
-});
 
 
-// RESET
+/* RESET */
 
 function resetPreview(){
 
-document.getElementById("preview").style.display=
-"none";
+  const preview =
+  document.getElementById(
+    "preview"
+  );
 
-document.getElementById("previewImg").src="";
+
+  const image =
+  document.getElementById(
+    "previewImage"
+  );
+
+
+  if(preview){
+    preview.style.display =
+    "none";
+  }
+
+
+  if(image){
+    image.src = "";
+  }
 
 }
 
