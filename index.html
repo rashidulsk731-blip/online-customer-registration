@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+<html lang="as">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+
+<title>Premium Customer Registration</title>
+
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+
+body{
+font-family:Arial,sans-serif;
+background:#f4f5f8;
+color:#172033;
+}
+
+header{
+background:linear-gradient(135deg,#0b1228,#25163c);
+color:white;
+padding:42px 18px 85px;
+text-align:center;
+}
+
+.badge{
+display:inline-block;
+padding:8px 16px;
+border:1px solid #d9bb69;
+border-radius:50px;
+color:#e7cb7d;
+font-size:11px;
+letter-spacing:1px;
+}
+
+header h1{
+margin-top:16px;
+font-size:30px;
+}
+
+header p{
+margin-top:8px;
+color:#bac2d3;
+}
+
+.container{
+max-width:850px;
+margin:-48px auto 40px;
+padding:0 15px;
+}
+
+.card{
+background:#fff;
+border-radius:25px;
+padding:25px;
+box-shadow:0 18px 50px #111a3218;
+border:1px solid #e5e8ef;
+}
+
+.fee{
+background:linear-gradient(135deg,#111936,#29173d);
+color:white;
+padding:22px;
+border-radius:20px;
+text-align:center;
+margin-bottom:25px;
+}
+
+.fee h2{
+font-size:38px;
+color:#e8ca76;
+margin:6px;
+}
+
+.upi{
+font-size:13px;
+color:#d3d9e6;
+}
+
+.qrbox{
+margin:20px auto;
+padding:15px;
+background:white;
+border-radius:18px;
+width:230px;
+box-shadow:0 8px 25px #0002;
+}
+
+.qrbox img{
+width:100%;
+display:block;
+border-radius:10px;
+}
+
+.qrtitle{
+font-weight:bold;
+margin-bottom:10px;
+color:#172033;
+}
+
+.grid{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:14px;
+}
+
+.field{
+margin-top:12px;
+}
+
+.full{
+grid-column:1/-1;
+}
+
+label{
+display:block;
+font-size:13px;
+font-weight:bold;
+color:#667086;
+margin-bottom:7px;
+}
+
+input,select,textarea{
+width:100%;
+padding:14px;
+border:1px solid #d9deea;
+border-radius:12px;
+font-size:14px;
+outline:none;
+background:#fff;
+}
+
+textarea{
+min-height:90px;
+resize:vertical;
+}
+
+input:focus,
+select:focus,
+textarea:focus{
+border-color:#c6a64f;
+}
+
+.pay{
+width:100%;
+margin-top:15px;
+padding:15px;
+border:0;
+border-radius:12px;
+background:#d8b765;
+font-weight:bold;
+font-size:15px;
+cursor:pointer;
+}
+
+.upload{
+margin-top:22px;
+padding:18px;
+border:2px dashed #d7dce7;
+border-radius:16px;
+background:#fafbfc;
+}
+
+.preview{
+display:none;
+margin-top:15px;
+text-align:center;
+}
+
+.preview img{
+max-width:100%;
+max-height:280px;
+border-radius:12px;
+}
+
+.check{
+margin-top:12px;
+padding:12px;
+border-radius:10px;
+background:#fff8df;
+font-size:13px;
+color:#6d5a1c;
+}
+
+.submit{
+margin-top:22px;
+width:100%;
+padding:16px;
+border:0;
+border-radius:13px;
+background:#17213f;
+color:white;
+font-size:15px;
+font-weight:bold;
+cursor:pointer;
+}
+
+.reset{
+margin-top:10px;
+width:100%;
+padding:13px;
+border:0;
+border-radius:12px;
+background:#edf0f5;
+cursor:pointer;
+}
+
+.notice{
+margin-top:20px;
+padding:14px;
+border-radius:12px;
+background:#f1f4f9;
+color:#667086;
+font-size:12px;
+line-height:1.6;
+}
+
+footer{
+text-align:center;
+padding:20px;
+color:#7a8395;
+font-size:12px;
+}
+
+@media(max-width:650px){
+.grid{
+grid-template-columns:1fr;
+}
+.full{
+grid-column:auto;
+}
+header h1{
+font-size:25px;
+}
+.card{
+padding:18px;
+}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+
+<div class="badge">
+PREMIUM CUSTOMER PORTAL
+</div>
+
+<h1>
+Customer Registration
+</h1>
+
+<p>
+Secure Registration • ₹50 Fee • WhatsApp Confirmation
+</p>
+
+</header>
+
+
+<div class="container">
+
+<div class="card">
+
+
+<!-- PAYMENT -->
+
+<div class="fee">
+
+<div>
+REGISTRATION FEE
+</div>
+
+<h2>₹50</h2>
+
+<div class="upi">
+Fampay UPI: <b>9387628351@fam</b>
+</div>
+
+
+<div class="qrbox">
+
+<div class="qrtitle">
+Scan QR & Pay ₹50
+</div>
+
+<img
+src="fampay-qr.jpg"
+alt="Fampay QR Code"
+onerror="this.style.display='none';document.getElementById('qrError').style.display='block';"
+>
+
+<div
+id="qrError"
+style="display:none;color:#b3261e;font-size:12px;padding:10px"
+>
+QR image not found.<br>
+Upload <b>fampay-qr.jpg</b> beside index.html.
+</div>
+
+</div>
+
+
+<button
+type="button"
+class="pay"
+onclick="payNow()"
+>
+💳 Pay ₹50 with UPI
+</button>
+
+</div>
+
+
+<form id="form">
+
+
+<h2>
+👤 Customer Details
+</h2>
+
+
+<div class="grid">
+
+
+<div class="field">
+
+<label>Customer Name *</label>
+
+<input
+id="name"
+required
+placeholder="Enter full name"
+>
+
+</div>
+
+
+<div class="field">
+
+<label>Mobile Number *</label>
+
+<input
+id="mobile"
+type="tel"
+inputmode="numeric"
+maxlength="10"
+required
+placeholder="10 digit mobile"
+>
+
+</div>
+
+
+<div class="field full">
+
+<label>Full Address *</label>
+
+<textarea
+id="address"
+required
+placeholder="Enter full address"
+></textarea>
+
+</div>
+
+
+<div class="field">
+
+<label>Service *</label>
+
+<select id="service" required>
+
+<option value="">
+Select Service
+</option>
+
+<option>Customer Registration</option>
+<option>Logo Design</option>
+<option>Online Form Service</option>
+<option>Design Service</option>
+<option>Other Service</option>
+
+</select>
+
+</div>
+
+
+<div class="field">
+
+<label>Registration Date *</label>
+
+<input
+id="date"
+type="date"
+required
+>
+
+</div>
+
+
+<div class="field full">
+
+<label>Additional Details</label>
+
+<textarea
+id="details"
+placeholder="Additional information..."
+></textarea>
+
+</div>
+
+</div>
+
+
+<!-- SCREENSHOT -->
+
+<div class="upload">
+
+<label>
+📸 Upload Payment Screenshot *
+</label>
+
+<input
+id="screenshot"
+type="file"
+accept="image/png,image/jpeg,image/webp"
+required
+>
+
+<div
+id="preview"
+class="preview"
+>
+
+<img
+id="previewImg"
+alt="Payment Screenshot"
+>
+
+</div>
+
+<div class="check">
+
+⚠️ Screenshot upload কৰিলেই payment verified বুলি ধৰা নহ'ব।
+₹50 payment account-ত receive হৈছে নে নাই owner-এ নিজে check কৰিব লাগিব।
+
+</div>
+
+</div>
+
+
+<button
+type="submit"
+class="submit"
+>
+📱 Submit Registration to WhatsApp
+</button>
+
+
+<button
+type="reset"
+class="reset"
+onclick="resetPreview()"
+>
+Reset Form
+</button>
+
+
+</form>
+
+
+<div class="notice">
+
+<b>Payment Instructions</b><br><br>
+
+1. ওপৰৰ QR scan কৰক অথবা Pay ₹50 button click কৰক।<br>
+2. ₹50 payment সম্পূৰ্ণ কৰক।<br>
+3. Payment successful screenshot লওক।<br>
+4. Screenshot upload কৰক।<br>
+5. Submit button click কৰক।<br>
+6. WhatsApp-ত registration details পঠিয়াওক।<br><br>
+
+<b>WhatsApp:</b> 9387628351
+
+</div>
+
+</div>
+
+</div>
+
+
+<footer>
+Premium Customer Registration Portal
+</footer>
+
+
+<script>
+
+const UPI_ID="9387628351@fam";
+
+const WHATSAPP="919387628351";
+
+const AMOUNT="50";
+
+
+// TODAY DATE
+
+document.getElementById("date").value=
+new Date().toISOString().slice(0,10);
+
+
+// UPI PAYMENT
+
+function payNow(){
+
+const name=
+document.getElementById("name").value.trim();
+
+const transactionNote=
+name ?
+"Customer Registration - "+name :
+"Customer Registration";
+
+const upi=
+"upi://pay"+
+"?pa="+encodeURIComponent(UPI_ID)+
+"&pn="+encodeURIComponent("Customer Registration")+
+"&am="+AMOUNT+
+"&cu=INR"+
+"&tn="+encodeURIComponent(transactionNote);
+
+window.location.href=upi;
+
+}
+
+
+// SCREENSHOT PREVIEW
+
+document.getElementById("screenshot")
+.addEventListener("change",function(){
+
+const file=this.files[0];
+
+if(!file)return;
+
+if(!file.type.startsWith("image/")){
+
+alert("Only image screenshot upload কৰক.");
+
+this.value="";
+
+return;
+}
+
+if(file.size>5*1024*1024){
+
+alert("Screenshot 5MB-তকৈ সৰু হ'ব লাগিব.");
+
+this.value="";
+
+return;
+}
+
+const reader=new FileReader();
+
+reader.onload=function(e){
+
+document.getElementById("previewImg").src=
+e.target.result;
+
+document.getElementById("preview").style.display=
+"block";
+
+};
+
+reader.readAsDataURL(file);
+
+});
+
+
+// SUBMIT
+
+document.getElementById("form")
+.addEventListener("submit",function(e){
+
+e.preventDefault();
+
+const name=
+document.getElementById("name").value.trim();
+
+const mobile=
+document.getElementById("mobile").value.trim();
+
+const address=
+document.getElementById("address").value.trim();
+
+const service=
+document.getElementById("service").value;
+
+const date=
+document.getElementById("date").value;
+
+const details=
+document.getElementById("details").value.trim() || "N/A";
+
+const screenshot=
+document.getElementById("screenshot").files[0];
+
+
+if(!/^[0-9]{10}$/.test(mobile)){
+
+alert("Valid 10 digit mobile number দিয়ক.");
+
+return;
+}
+
+if(!screenshot){
+
+alert("Payment screenshot upload কৰক.");
+
+return;
+}
+
+
+// WhatsApp message
+
+const message=
+`*NEW CUSTOMER REGISTRATION*
+
+━━━━━━━━━━━━━━━━━━
+
+*Customer Name:* ${name}
+
+*Mobile:* ${mobile}
+
+*Address:* ${address}
+
+*Service:* ${service}
+
+*Registration Date:* ${date}
+
+*Registration Fee:* ₹50
+
+*UPI ID:* ${UPI_ID}
+
+*Payment Screenshot:* Uploaded
+
+*Additional Details:* ${details}
+
+━━━━━━━━━━━━━━━━━━
+
+⚠️ Please verify ₹50 payment manually.
+
+Premium Customer Registration Portal`;
+
+
+const url=
+"https://wa.me/"+
+WHATSAPP+
+"?text="+
+encodeURIComponent(message);
+
+
+window.open(url,"_blank");
+
+
+// Helpful instruction
+
+setTimeout(function(){
+
+alert(
+"WhatsApp খুলিব। Customer-এ message পঠোৱাৰ লগতে Payment Screenshot-টো WhatsApp chat-ত manually attach কৰি Send কৰিব লাগিব."
+);
+
+},500);
+
+});
+
+
+// RESET
+
+function resetPreview(){
+
+document.getElementById("preview").style.display=
+"none";
+
+document.getElementById("previewImg").src="";
+
+}
+
+</script>
+
+</body>
+</html>
